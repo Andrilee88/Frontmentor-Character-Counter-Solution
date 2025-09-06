@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Character counter</title>
+
+</head>
+<body class="bg-white dark:bg-neutral-900">
+  <main class="max-w-sm mx-auto gap-10 md:max-w-3xl">
+      <!-- Header -->
+      <header class="flex flex-row justify-between p-4 mb-10">
+        <img class="w-[184px] h-[30px] dark:hidden" src="/assets/images/logo-light-theme.svg" alt="logo-light-theme" />
+        <img class="w-[184px] h-[30px] hidden dark:block" src="/assets/images/logo-dark-theme.svg" alt="logo-dark-theme" />
+        <button 
+          id="toggleTheme" 
+          aria-label="Toggle theme"
+          class="w-8 h-8 rounded-md bg-neutral-100 flex flex-col justify-center items-center hover:cursor-pointer dark:bg-neutral-700">
+            <img src="/assets/images/icon-moon.svg" alt="icon-moon" id="moonIcon"/>
+        </button>
+      </header>
+    
+      <section>
+        <div class="px-4">
+          <!-- Title -->
+          <h1 class="tp-1-mb mb-10 text-center md:text-64 dark:text-neutral-100">Analyze your text <br>in real-time.</h1>
+    
+          <!-- Text Area -->
+          <textarea 
+            id="textInput" 
+            placeholder="Start typing here... (or paste your text)"
+            class="w-full h-32 p-2 tp-3 text-neutral-900 bg-neutral-200 rounded-xl border-neutral-100 hover:cursor-pointer focus:outline-purple-500 resize-none mb-4 dark:bg-neutral-800 dark:text-neutral-200"></textarea>
+          <div id="limitMessage"></div>
+          <!-- Options -->
+          <div class="flex flex-col gap-2 mb-10">
+            <label class="flex items-center">
+              <input type="checkbox" 
+                id="excludeSpace" 
+                class="w-4 h-4 appearance-none border-neutral-600 border-[1px] rounded-sm 
+                    checked:bg-purple-500 checked:border-purple-500 focus:outline-none
+                    checked:before:content-['✔'] checked:before:text-white 
+                    checked:before:flex checked:before:items-center 
+                    checked:before:justify-center checked:before:text-xs hover:cursor-pointer dark:border-neutral-200">
+              <span class="ml-[10px] tp-4 dark:text-neutral-200">Exclude Spaces</span>
+            </label>
+            <div class="flex">
+              <label class="flex items-center">
+                <input type="checkbox" 
+                  id="setLimit" 
+                  class="w-4 h-4 appearance-none border-neutral-600 border-[1px] rounded-sm 
+                    checked:bg-purple-500 checked:border-purple-500 focus:outline-none
+                    checked:before:content-['✔'] checked:before:text-white 
+                    checked:before:flex checked:before:items-center 
+                    checked:before:justify-center checked:before:text-xs dark:border-neutral-200 hover:cursor-pointer">
+                <span class="ml-[10px] tp-4 dark:text-neutral-200">Set Character Limit</span>
+              </label>
+              <input type="number" id="limitCharacter" placeholder="0" class="w-[55px] ml-[10px] pl-2 no-spinner hidden border-1 py-1 px-3 rounded-md">
+            </div>
+            <span id="readingTime" class="dark:text-neutral-200">Approx.reading time: 0 minute</span>
+          </div>
+    
+          <!-- Stats -->
+          <div class="flex flex-col gap-4 md:flex-row">
+            <div class="w-full h-[130px] bg-purple-400 rounded-xl p-5 relative overflow-hidden md:h-[150px]">
+              <div id="charCount" class="tp-1-mb text-neutral-900 md:text-64">00</div>
+              <div class="tp-3 text-neutral-900 md:z-20 md:relative">Total Characters</div>
+              <img class="absolute -right-12 -bottom-2 w-36 h-36 opacity-50 md:w-40 md:h-40 md:-right-18 md:z-10" src="/assets/images/pattern-character-count.svg" alt="pattern-character-count">
+            </div>
+            <div class="w-full h-[130px] bg-yellow-500 rounded-xl p-5 relative overflow-hidden md:h-[150px]">
+              <div id="wordCount" class="tp-1-mb text-neutral-900 md:text-64">00</div>
+              <div class="tp-3 text-neutral-900">Word Count</div>
+              <img class="absolute -right-12 -bottom-2 w-36 h-36 opacity-70 md:w-40 md:h-40 md:-right-20" src="/assets/images/pattern-word-count.svg" alt="pattern-word-count">
+            </div>
+            <div class="w-full h-[130px] bg-orange-500 rounded-xl p-5 relative overflow-hidden md:h-[150px]">
+              <div id="sentenceCount" class="tp-1-mb text-neutral-900 md:text-64">00</div>
+              <div class="tp-3 text-neutral-900 md:relative md:z-20">Sentence Count</div>
+              <img class="absolute -right-12 -bottom-2 w-36 h-36 opacity-90 md:w-40 md:h-40 md:-right-20 md:bottom-1md:z-10"src="/assets/images/pattern-sentence-count.svg" alt="pattern-sentence-count">
+            </div>
+          </div>
+    
+          <!-- Letter Density -->
+          <div class="md:mt-6">
+            <h3 class="tp-2 text-neutral-900 dark:text-neutral-200 md:mb-5">Letter Density</h3>
+            <div id="letterDensity"></div>
+            <button id="toggleView" aria-label="Toggle View" style="display: none;"></button>
+          </div>
+        </div>
+    
+      </section>
+  </main>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>
