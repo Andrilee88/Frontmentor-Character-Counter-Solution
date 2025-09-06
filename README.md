@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/Andrilee88/Frontmentor-Character-Counter-Solution.git)
-- Live Site URL: [Netlify](https://your-live-site-url.com)
+- Live Site URL: [Netlify](https://frontmentor-character-counter.netlify.app/)
 
 ## My process
 
